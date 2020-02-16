@@ -1,6 +1,11 @@
 <div class="container">
-    <mat-spinner *ngIf="members && members.length === 0"></mat-spinner>
-    <mat-list>
+  <mat-spinner *ngIf="members && members.length === 0"></mat-spinner>
+  <mat-card>
+    <mat-card-header>
+        <mat-card-title>Members</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-list>
         <mat-list-item *ngFor="let member of members">
             <h3 matLine>Name: {{member.name}}</h3>
             <p matLine>
@@ -12,4 +17,6 @@
           </mat-action-list>
         </mat-list-item>
       </mat-list>
+    </mat-card-content>
+  </mat-card>
 </div>
