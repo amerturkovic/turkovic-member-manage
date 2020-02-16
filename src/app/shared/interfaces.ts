@@ -1,6 +1,7 @@
 
 export interface IMember {
     id: string;
+    date: any;
     name: string;
     friends: string;
     age: number;

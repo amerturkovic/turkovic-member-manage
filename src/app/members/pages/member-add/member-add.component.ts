@@ -54,13 +54,15 @@ export class MemberAddComponent implements OnInit {
     // Just in case clear the error
     this.error = '';
 
+    // Added date prop to be able to sort the array by date(descending)
     const member: IMember  = {
       id: this.getUUID(),
+      date: new Date(),
       name : this.name.value,
       friends : this.friends.value,
       age : this.age.value,
       weight : this.weight.value
-    }
+    };
 
     this.membersService.save(member)
       .subscribe(newMember => {

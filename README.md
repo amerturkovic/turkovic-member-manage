@@ -14,7 +14,10 @@ In the form used to add a member I use a combination of the Angular form validat
 
 I used ‘angular-in-memory-web-api’ module to simulate CRUD data persistence operations without a real server. More info on it can be found here: https://www.npmjs.com/package/angular-in-memory-web-api
 
-I also created a component to display the list of available member, members.component, and add a feature to delete a member from the list. I added a deletion confirmation dialog for better user experience. On successful deletion I just added a filter to deleteMember response array to remove deleted member from the list.
+I also created a component to display the list of available member, members.component, and add a feature to delete a member from the list. I added a deletion confirmation dialog for better user experience. On successful deletion I just added a filter to deleteMember response array to remove deleted member from the list. 
+
+The date property added to IMember interface to allow sorting of the members array by date starting with a latest member.
+
 
 
 ## Development server
