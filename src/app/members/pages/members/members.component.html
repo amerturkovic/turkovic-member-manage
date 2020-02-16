@@ -1,0 +1,15 @@
+<div class="container">
+    <mat-spinner *ngIf="members && members.length === 0"></mat-spinner>
+    <mat-list>
+        <mat-list-item *ngFor="let member of members">
+            <h3 matLine>Name: {{member.name}}</h3>
+            <p matLine>
+              <span>Age: {{member.age}}</span> | <span>Weight: {{member.weight}}</span>
+            </p>
+            <p matLine>Friends: {{member.friends}}</p>
+          <mat-action-list>
+            <button mat-list-item (click)="openDeleteDialog(member, $event)">Delete</button>
+          </mat-action-list>
+        </mat-list-item>
+      </mat-list>
+</div>
