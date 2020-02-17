@@ -1,18 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { IMember } from '../../../shared/interfaces';
 import { MembersService } from '../../../shared/services/members.service';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-member-add',
   templateUrl: './member-add.component.html',
   styleUrls: ['./member-add.component.scss']
 })
-export class MemberAddComponent implements OnInit {
+export class MemberAddComponent implements OnInit, OnDestroy {
   
   memberForm: FormGroup;
   error: string;
+  saveSub: Subscription;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -64,7 +66,8 @@ export class MemberAddComponent implements OnInit {
       weight : this.weight.value
     };
 
-    this.membersService.save(member)
+    // Initiate save member subscription
+    this.saveSub = this.membersService.save(member)
       .subscribe(newMember => {
         console.log('Member saved successfully:', newMember);
         this.goToMembersPage();
@@ -97,6 +100,10 @@ export class MemberAddComponent implements OnInit {
    */
   goToMembersPage() {
     this.router.navigate(['/members']);
+  }
+
+  ngOnDestroy() {
+    this.saveSub.unsubscribe();
   }
 
 }

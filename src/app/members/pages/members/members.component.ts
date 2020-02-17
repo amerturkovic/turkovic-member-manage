@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { IMember, DeleteMemberDialogData } from '../../../shared/interfaces';
 import { MembersService } from '../../../shared/services/members.service';
 import { DeleteConfirmDialogComponent } from '../../components/delete-confirm-dialog/delete-confirm-dialog.component';
 import { Router } from '@angular/router';
 import { MatDialog} from '@angular/material/dialog';
+import { Subscription } from 'rxjs';
 
 
 @Component({
@@ -11,8 +12,10 @@ import { MatDialog} from '@angular/material/dialog';
   templateUrl: './members.component.html',
   styleUrls: ['./members.component.scss']
 })
-export class MembersComponent implements OnInit {
+export class MembersComponent implements OnInit, OnDestroy {
   members: IMember[];
+  getMembersSub: Subscription;
+  deleteMemberSub: Subscription;
 
   constructor(
     private membersService: MembersService,
@@ -29,7 +32,7 @@ export class MembersComponent implements OnInit {
    * @returns IMember[] json | error
    */
   getMembers(): void {
-    this.membersService.getMembers().subscribe(
+    this.getMembersSub = this.membersService.getMembers().subscribe(
       members => {
         this.members = members;
         console.log('Get Members Response:', members);
@@ -62,12 +65,17 @@ export class MembersComponent implements OnInit {
    * @returns IMember[] json | error
    */
   deleteMember(member: IMember): void {
-    this.membersService.delete(member).subscribe(res => {
+    this.deleteMemberSub = this.membersService.delete(member).subscribe(res => {
       this.members = this.members.filter(m => m !== member);
     },
     error => {
       console.log('Delete Member Error:', error);
     });
+  }
+
+  ngOnDestroy() {
+    this.deleteMemberSub.unsubscribe();
+    this.getMembersSub.unsubscribe();
   }
 
 }
