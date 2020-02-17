@@ -12,7 +12,7 @@ I created all pages and components needed to handle all full CRUD operations, bu
 
 In the form used to add a member I use a combination of the Angular form validators and DOM attributes. I included the reset button even though the form might be to small for that. If I had more time I would make error messages more specific to the issue (e.g. One for a required field another for invalid input format). On successful member creation I would take a user back to the members list page.
 
-I used ‘angular-in-memory-web-api’ module to simulate CRUD data persistence operations without a real server. More info on it can be found here: https://www.npmjs.com/package/angular-in-memory-web-api
+I used ‘angular-in-memory-web-api’ module to simulate CRUD data persistence operations without a real server. More info on it can be found here: https://www.npmjs.com/package/angular-in-memory-web-api. If I had enough time I would use BehaviorSubject and subscribe to it for all getMembers calls. Currently, on deleteMember call I remove a member from the list on response instead of just using the subject to fire next(data) on any updates to the member list data.
 
 I also created a component to display the list of available member, members.component, and add a feature to delete a member from the list. I added a deletion confirmation dialog for better user experience. On successful deletion I just added a filter to deleteMember response array to remove deleted member from the list. 
 

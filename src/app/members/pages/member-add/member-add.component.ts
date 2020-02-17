@@ -52,7 +52,7 @@ export class MemberAddComponent implements OnInit, OnDestroy {
    * Navigate to member detail component on succes
    * @returns IMember json | error
    */
-  saveMember(){
+  saveMember() {
     // Just in case clear the error
     this.error = '';
 
@@ -103,7 +103,9 @@ export class MemberAddComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.saveSub.unsubscribe();
+    if ( this.saveSub ){
+        this.saveSub.unsubscribe();
+    }
   }
 
 }

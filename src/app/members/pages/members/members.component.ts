@@ -1,8 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { IMember, DeleteMemberDialogData } from '../../../shared/interfaces';
+import { IMember } from '../../../shared/interfaces';
 import { MembersService } from '../../../shared/services/members.service';
 import { DeleteConfirmDialogComponent } from '../../components/delete-confirm-dialog/delete-confirm-dialog.component';
-import { Router } from '@angular/router';
 import { MatDialog} from '@angular/material/dialog';
 import { Subscription } from 'rxjs';
 
@@ -19,7 +18,6 @@ export class MembersComponent implements OnInit, OnDestroy {
 
   constructor(
     private membersService: MembersService,
-    private router: Router,
     public dialog: MatDialog
   ) { }
 
@@ -35,7 +33,6 @@ export class MembersComponent implements OnInit, OnDestroy {
     this.getMembersSub = this.membersService.getMembers().subscribe(
       members => {
         this.members = members;
-        console.log('Get Members Response:', members);
       },
       error => {
         console.log('Get Members Error:', error);
@@ -74,7 +71,9 @@ export class MembersComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.deleteMemberSub.unsubscribe();
+    if ( this.deleteMemberSub ) {
+        this.deleteMemberSub.unsubscribe();
+    }
     this.getMembersSub.unsubscribe();
   }
 

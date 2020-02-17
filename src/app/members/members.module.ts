@@ -8,13 +8,15 @@ import { MemberDetailComponent } from './pages/member-detail/member-detail.compo
 import { DeleteConfirmDialogComponent } from './components/delete-confirm-dialog/delete-confirm-dialog.component';
 import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
 
-import {MatButtonModule} from '@angular/material';
-import {MatInputModule} from '@angular/material/input';
-import {MatCardModule} from '@angular/material/card';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
-import {MatListModule} from '@angular/material/list';
-import {MatDialogModule} from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material';
+import { MatInputModule } from '@angular/material/input';
+import { MatCardModule } from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatListModule } from '@angular/material/list';
+import { MatDialogModule } from '@angular/material/dialog';
+import { DThreeChartComponent } from './components/d-three-chart/d-three-chart.component';
+import { AgeFriendsChartComponent } from './pages/age-friends-chart/age-friends-chart.component';
 
 
 @NgModule({
@@ -23,7 +25,9 @@ import {MatDialogModule} from '@angular/material/dialog';
     MemberAddComponent,
     MemberEditComponent,
     MemberDetailComponent,
-    DeleteConfirmDialogComponent
+    DeleteConfirmDialogComponent,
+    DThreeChartComponent,
+    AgeFriendsChartComponent
   ],
   entryComponents: [
     DeleteConfirmDialogComponent

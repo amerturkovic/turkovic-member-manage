@@ -25,12 +25,12 @@ getMember(id: string): Observable<IMember> {
     map(members => members.find(member => member.id === id))
   );
 }
-
 save(member: IMember) {
-  if (member.id) {
-    return this.put(member);
-  }
   return this.post(member);
+}
+
+update(member: IMember) {
+  return this.put(member);
 }
 
 delete(member: IMember) {
