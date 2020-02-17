@@ -18,15 +18,19 @@ I also created a component to display the list of available member, members.comp
 
 The date property added to IMember interface to allow sorting of the members array by date starting with a latest member.
 
+I ran out of the time and did not get chance to do 2 things:
+- Add additional unit testing. You will find the one created with CLI.
+- Troubleshoot chart to render on initial load. It works if you resize the window. I have never used D3 library before.
 
+## Clone the repo and install npm dependencies
+
+1. clone the repo to your local drive
+2. cd `turkovic-member-manage`
+3. run `npm install`
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Run `ng serve --open` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ## Build
 
@@ -40,6 +44,3 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).

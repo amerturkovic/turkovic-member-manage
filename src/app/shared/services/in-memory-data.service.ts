@@ -10,7 +10,7 @@ export class InMemoryMemberService implements InMemoryDbService {
         { id: '115', name: 'James King', friends: 'Eva, John', age: 36, weight: 220 },
         { id: '116', name: 'William Some', friends: 'Emma, Carter', age: 18, weight: 155 },
         { id: '117', name: 'The Wade', friends: 'Joseph, David Ava', age: 27, weight: 102 },
-        { id: '118', name: 'Benjamin Frank', friends: 'Sofia, Camila, Olivia, Ava', age: 618, weight: 172 },
+        { id: '118', name: 'Benjamin Frank', friends: 'Sofia, Camila, Olivia, Ava', age: 61, weight: 172 },
         { id: '119', name: 'Mrs. Smith', friends: 'Carter, Michael, Ava', age: 29, weight: 130 }
       ];
       return { members };

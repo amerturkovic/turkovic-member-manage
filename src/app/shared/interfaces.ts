@@ -10,4 +10,8 @@ export interface IMember {
 export interface DeleteMemberDialogData {
     member: IMember;
 }
+export interface ChartDataModel {
+    name: string;
+    numFriends: number;
+  }
 
