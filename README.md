@@ -20,7 +20,7 @@ The date property added to IMember interface to allow sorting of the members arr
 
 I ran out of the time and did not get chance to do 2 things:
 - Add additional unit testing. You will find the one created with CLI.
-- Troubleshoot chart to render on initial load. It works if you resize the window. I have never used D3 library before.
+- Troubleshoot chart to render css on initial load.
 
 ## Clone the repo and install npm dependencies
 
